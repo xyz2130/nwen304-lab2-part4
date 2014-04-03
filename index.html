@@ -52,20 +52,16 @@ $(document).bind('pageinit', function() {
     alert("Fetching result from "+jsonUrl);
     var resultStr = "";
     $.get(jsonUrl, function(data) {
-      alert(data);
-      if(data.error){
-	alert("error");
-	alert(data.error);
-	resultStr = "<p><b>"+data.error+"</b></p>";
-      }
-      else{
+      
 	 alert(data.author);
 	resultStr = "<p><b>"+data.author+" said "+data.text+"</b></p>";
-      }
-      
+            
      
       $("#result").html(resultStr)
-    }, 'json');
+    }, 'json').fail(function(data){
+	alert("fail");
+	alert(data);
+    });
   });
 
 
