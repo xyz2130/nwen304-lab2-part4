@@ -59,9 +59,9 @@ $(document).bind('pageinit', function() {
      
       $("#result").html(resultStr)
     }, 'json').fail(function(data){
-	alert("fail");
-	alert(data);
-    });
+	alert(data.error);
+	$("#result").html("<p><b>"+data.error+"</b></p>")
+    }, 'json');
   });
 
 
