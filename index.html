@@ -51,7 +51,7 @@ $(document).bind('pageinit', function() {
     var jsonUrl = "http://blooming-cove-7379.herokuapp.com/quote/"+q;
     alert("Fetching result from "+jsonUrl);
     $.get(jsonUrl, function(data) {
-      if(data.hasOwnProperty('error')){
+      if($(data).attr('error'){
 	$("#result").html("<p><b>"+data.error+"</b></p>");
 	return ;
       }
