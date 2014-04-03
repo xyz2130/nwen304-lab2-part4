@@ -50,14 +50,18 @@ $(document).bind('pageinit', function() {
     alert("Click "+q);
     var jsonUrl = "http://blooming-cove-7379.herokuapp.com/quote/"+q;
     alert("Fetching result from "+jsonUrl);
+    var resultStr = "";
     $.get(jsonUrl, function(data) {
       if($(data).attr('error'){
-	$("#result").html("<p><b>"+data.error+"</b></p>");
-	return ;
+	resultStr = "<p><b>"+data.error+"</b></p>";
+      }
+      else{
+	 alert(data.author);
+	resultStr = "<p><b>"+data.author+" said "+data.text+"</b></p>";
       }
       
-      alert(data.author);
-      $("#result").html("<p><b>"+data.author+" said "+data.text+"</b></p>")
+     
+      $("#result").html(resultStr)
     }, 'json');
   });
 
