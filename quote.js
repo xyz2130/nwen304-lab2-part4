@@ -25,7 +25,7 @@ app.get('/quote/:id', function(req, res) {
   if(quotes.length <= req.params.id || req.params.id < 0) {
     res.statusCode = 404;
     var error = { error : "Error 404: No quote found"};
-    return res.send(error);
+    return res.send('Error 404: No quote found');
   }
 
   var q = quotes[req.params.id];
