@@ -52,6 +52,7 @@ $(document).bind('pageinit', function() {
     alert("Fetching result from "+jsonUrl);
     var resultStr = "";
     $.get(jsonUrl, function(data) {
+      alert(data);
       if(data.error){
 	alert("error");
 	alert(data.error);
