@@ -1,0 +1,23 @@
+{
+  "name": "lab2-part4",
+  "version": "0.0.0",
+  "description": "Part 4 of Lab2 NWEN304/tri1-2014",
+  "main": "quote.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NWEN304",
+    "example",
+    "heroku"
+  ],
+  "author": "Chanikarn",
+  "license": "ISC",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "logfmt": "^1.1.2",
+    "express": "^3.5.1"
+  }
+}
