@@ -52,10 +52,13 @@ $(document).bind('pageinit', function() {
     alert("Fetching result from "+jsonUrl);
     var resultStr = "";
     $.get(jsonUrl, function(data) {
-      
+      if(data.error){
+	resultStr = "<p><b>"+data.error+"</b></p>";
+      }
+      else{
 	 alert(data.author);
 	resultStr = "<p><b>"+data.author+" said "+data.text+"</b></p>";
-      
+      }
       
      
       $("#result").html(resultStr)
