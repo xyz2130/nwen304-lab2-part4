@@ -61,7 +61,7 @@ $(document).bind('pageinit', function() {
     }, 'json').fail(function(data){
 	alert(data.error);
 	$("#result").html("<p><b>"+data.error+"</b></p>")
-    }, 'json');
+    });
   });
 
 
