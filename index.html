@@ -60,7 +60,9 @@ $(document).bind('pageinit', function() {
       $("#result").html(resultStr)
     }, 'json').fail(function(){
 	//alert(data.error);
-	$("#result").load("ajax/"+jsonUrl);
+	var a = $(jsonUrl).html();
+	alert(a);
+	$("#result").html("ajax/"+jsonUrl);
     });
   });
 
