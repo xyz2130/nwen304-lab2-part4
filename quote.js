@@ -34,7 +34,7 @@ app.get('/quote/:id', function(req, res) {
 app.post('/quote', function(req, res) {
   console.log(req.body);
   if(!req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text')
-     || req.body.author == "" || req.body.text == "")) {
+     || req.body.author == "" || req.body.text == "") {
     res.statusCode = 400;
     return res.send('Error 400: Post syntax incorrect.');
   }
