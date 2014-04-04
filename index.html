@@ -58,8 +58,9 @@ $(document).bind('pageinit', function() {
             
      
       $("#result").html(resultStr)
-    }, 'json').fail(function(){
+    }, 'json').fail(function(data){
 	//alert(data.error);
+	alert(data.body);
 	var a = $(jsonUrl).html();
 	alert(a);
 	$("#result").html("ajax/"+jsonUrl);
