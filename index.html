@@ -83,7 +83,11 @@ $(document).bind('pageinit', function() {
     var newQuote = { "author" : a, "text" : q2 };
     $.post(jsonUrl,newQuote, function(data) {
       alert("Added quote number " + data.pos + " " + data.author + " " + data.text);
-    }, 'json');
+    }, 'json')
+	.fail(function(jqXHR,textStatus,errorThrown){
+	alert(jqXHR.responseText);
+	$("#result").html("<p><b>"+jqXHR.responseText+"</b></p>")
+	});
   });
 
 
