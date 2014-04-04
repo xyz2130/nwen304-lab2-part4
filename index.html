@@ -69,8 +69,8 @@ $(document).bind('pageinit', function() {
     },'json');
 
     requests.error(function(jqXHR,textStatus, errorThrown){
-      alert("Error from server");
-      alert(jqXHR.content);
+      alert(jqXHR.responseText);
+      $("#result").html("<p><b>"+jqXHR.responseText+"</b></p>")
     });
   });
 
@@ -111,6 +111,7 @@ $(document).bind('pageinit', function() {
 	  $("#result").html("<p><b>quote deleted.</b></p>")
 	}).fail(function(jqXHR,textStatus,errorThrown){
 	  alert(jqXHR.responseText);
+	  $("#result").html("<p><b>"+jqXHR.responseText+"</b></p>")
      });
 	
   });
