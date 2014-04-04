@@ -19,16 +19,19 @@
 
     <div role="main" class="ui-content">
 
-        <label for="text-1">Text input:</label>
+        <label for="text-1">Input quote number:</label>
     	<input name="text-1" id="text1" value="1" type="text">
-    	<input type="submit" value="Submit Button" id="button1" />
+    	<input type="submit" value="Get quote" id="button1" />
+	<input type="submit" value="Delete quote" id="button4" />
 
 		<label for="text-2">Add a new quote:</label>
 		<p>author</p><input name="text-2" id="text2" value="1" type="text">
 		<p>quote</p><input name="text-3" id="text3" value="1" type="text">
-		 <input type="submit" value="Submit Button2" id="button2" />
+		 <input type="submit" value="Post new quote" id="button2" />
 
 	<input type="submit" value="Random Quote" id="button3" />
+
+	
 
 	<!-- put the result here -->
 	<div id="result"  class="functions"></div>
@@ -92,6 +95,26 @@ $(document).bind('pageinit', function() {
   	$("#result").html("<p><b>"+data.author+" said "+data.text+"</b></p>")
 	}, 'json');
   });
+
+  $( "#button4" ).bind( "click", function(event, ui) {
+    var q = $("#text1").val();
+    alert("Click "+q);
+    var jsonUrl = "http://blooming-cove-7379.herokuapp.com/quote/"+q;
+    alert("Deleteing quote from "+jsonUrl);
+    
+
+    var requests = $.delete(jsonUrl);
+    
+    requests.success(function(data) {
+	//alert(data.author);
+	$("#result").html("<p><b>quote deleted.</b></p>")
+    },'json');
+
+    requests.error(function(jqXHR,textStatus, errorThrown){
+      alert("Error from server");
+    });
+  });
+
 });
 </script>
 </body>
