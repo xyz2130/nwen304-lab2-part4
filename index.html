@@ -70,6 +70,7 @@ $(document).bind('pageinit', function() {
 
     requests.error(function(jqXHR,textStatus, errorThrown){
       alert("Error from server");
+      alert(jqXHR.content);
     });
   });
 
@@ -102,17 +103,14 @@ $(document).bind('pageinit', function() {
     var jsonUrl = "http://blooming-cove-7379.herokuapp.com/quote/"+q;
     alert("Deleteing quote from "+jsonUrl);
     
-
-    var requests = $.delete(jsonUrl);
-    
-    requests.success(function(data) {
-	//alert(data.author);
-	$("#result").html("<p><b>quote deleted.</b></p>")
-    },'json');
-
-    requests.error(function(jqXHR,textStatus, errorThrown){
-      alert("Error from server");
-    });
+    //using ajax
+    $.ajax({
+	url: jsonUrl,
+	type: 'DELETE',
+	}).done(function(res){
+	  $("#result").html("<p><b>quote deleted.</b></p>")
+	});
+	
   });
 
 });
