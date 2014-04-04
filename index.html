@@ -58,8 +58,8 @@ $(document).bind('pageinit', function() {
             
      
       $("#result").html(resultStr)
-    }, 'json').fail(function(data){
-	alert(data.error);
+    }, 'json').fail(function(){
+	//alert(data.error);
 	$("#result").load(jsonUrl);
     });
   });
