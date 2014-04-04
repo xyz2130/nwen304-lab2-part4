@@ -60,7 +60,7 @@ $(document).bind('pageinit', function() {
       $("#result").html(resultStr)
     }, 'json').fail(function(data){
 	//alert(data.error);
-	alert(data.body);
+	alert(data.body.error);
 	var a = $(jsonUrl).html();
 	alert(a);
 	$("#result").html("ajax/"+jsonUrl);
