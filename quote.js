@@ -23,9 +23,8 @@ app.get('/quote/random', function(req, res) {
 
 app.get('/quote/:id', function(req, res) {
   if(quotes.length <= req.params.id || req.params.id < 0) {
-    //res.statusCode = 404;
-    //var err = { error : "Error 404: No quote found"};
-    return res.send(404,'Error 404: No quote found');
+    res.statusCode = 404;
+    return res.send('Error 404: No quote found');
   }
 
   var q = quotes[req.params.id];
@@ -46,6 +45,7 @@ app.post('/quote', function(req, res) {
 
   quotes.push(newQuote);
   // should send back the location at this point
+  res.location('/quote' + quotes.length-1);
   console.log("Added!");
   newQuote.pos = quotes.length-1;
   res.send(newQuote);
