@@ -33,7 +33,8 @@ app.get('/quote/:id', function(req, res) {
 
 app.post('/quote', function(req, res) {
   console.log(req.body);
-  if(!req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text')) {
+  if(!req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text')
+     || req.body.author == "" || req.body.text == "")) {
     res.statusCode = 400;
     return res.send('Error 400: Post syntax incorrect.');
   }
@@ -45,7 +46,6 @@ app.post('/quote', function(req, res) {
 
   quotes.push(newQuote);
   // should send back the location at this point
-  //var loc = '/quote/'+quotes.length-1;
   res.setHeader('Location','/quote/'+quotes.length-1);
   console.log("Added!");
   newQuote.pos = quotes.length-1;
