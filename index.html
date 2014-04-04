@@ -79,6 +79,7 @@ $(document).bind('pageinit', function() {
     var newQuote = { "author" : a, "text" : q2 };
     $.post(jsonUrl,newQuote, function(data) {
       alert("Added quote number " + data.pos + " " + data.author + " " + data.text);
+      $("#result").html("<p><b>New quote at #"+data.pos+"</b></p>")
     }, 'json')
 
 	.fail(function(jqXHR,textStatus,errorThrown){
