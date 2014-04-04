@@ -109,7 +109,9 @@ $(document).bind('pageinit', function() {
 	type: 'DELETE',
 	}).done(function(res){
 	  $("#result").html("<p><b>quote deleted.</b></p>")
-	});
+	}).fail(function(jqXHR,textStatus,errorThrown){
+	  alert(jqXHR.responseText);
+     });
 	
   });
 
