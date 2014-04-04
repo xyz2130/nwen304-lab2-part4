@@ -45,10 +45,8 @@ app.post('/quote', function(req, res) {
 
   quotes.push(newQuote);
   // should send back the location at this point
-  
-  var loc = '/quote/'+quotes.length-1;
-  res.location(loc);
-  //res.setHeader('Location',loc);
+  //var loc = '/quote/'+quotes.length-1;
+  res.setHeader('Location','/quote/'+quotes.length-1);
   console.log("Added!");
   newQuote.pos = quotes.length-1;
   res.send(newQuote);
