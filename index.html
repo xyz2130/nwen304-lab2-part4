@@ -60,7 +60,7 @@ $(document).bind('pageinit', function() {
       $("#result").html(resultStr)
     }, 'json').fail(function(){
 	//alert(data.error);
-	$("#result").html('<object data="http://blooming-cove-7379.herokuapp.com/quote/44"/>');
+	$("#result").load("ajax/"+jsonUrl);
     });
   });
 
